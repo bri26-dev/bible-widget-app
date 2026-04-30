@@ -1,0 +1,22 @@
+[
+  {
+    "name": "☀️The Sun",
+    "meaning": "💬Positivity, success, warmth",
+    "image": "/assets/tarot/sun.png"
+  },
+  {
+    "name": "🌙The Moon",
+    "meaning": "💬Intuition, uncertainty, reflection",
+    "image": "/assets/tarot/moon.png"
+  },
+  {
+    "name": "🌠The Star",
+    "meaning": "💬Hope, healing, guidance",
+    "image": "/assets/tarot/star.png"
+  },
+  {
+    "name": "🎉The Fool",
+    "meaning": "💬New beginnings, freedom",
+    "image": "/assets/tarot/fool.png"
+  }
+]
