@@ -220,7 +220,7 @@ Move with awareness. Trust the process, even if it feels unclear.`,
                       </p>
 
                       {/* MEANING */}
-                      <p className="text-[8px] text-gray-600 leading-snug h-[36px] flex items-center justify-center px-1">
+                      <p className="text-[9px] text-gray-600 leading-snug h-[36px] flex items-center justify-center px-1">
                         {card.meaning}
                       </p>
                     </div>
