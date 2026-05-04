@@ -4,6 +4,7 @@ export default function ParticleTrail({ theme = "pink" }) {
   const canvasRef = useRef(null);
   const particles = useRef([]);
   const lastPos = useRef({ x: 0, y: 0 });
+  const rafRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,11 +20,11 @@ export default function ParticleTrail({ theme = "pink" }) {
 
     window.addEventListener("resize", resize);
 
-    // 🎨 Theme colors
+    // 🎨 brighter sparkle colors
     const themeColors = {
-      pink: ["#ff9cc2", "#ffc1d6", "#ffe4ec"],
-      blue: ["#7dd3fc", "#bae6fd", "#e0f2fe"],
-      purple: ["#c084fc", "#d8b4fe", "#f3e8ff"],
+      pink: ["#ff8fb1", "#ffb3c6", "#ffd6e0", "#fff"],
+      blue: ["#7dd3fc", "#a5f3fc", "#e0f2fe", "#fff"],
+      purple: ["#c084fc", "#e9d5ff", "#f3e8ff", "#fff"],
     };
 
     const getColor = () => {
@@ -31,25 +32,31 @@ export default function ParticleTrail({ theme = "pink" }) {
       return colors[Math.floor(Math.random() * colors.length)];
     };
 
-    // ✨ Create directional particles
+    // 🚫 increased but still safe
+    const MAX_PARTICLES = 380;
+
+    // ✨ sparkle particle
     const createParticles = (x, y, dx = 0, dy = 0, burst = false) => {
-      const count = burst ? 20 : 6;
+      if (particles.current.length > MAX_PARTICLES) return;
+
+      const count = burst ? 16 : 5;
 
       for (let i = 0; i < count; i++) {
         particles.current.push({
           x,
           y,
-          vx: dx * 0.2 + (Math.random() - 0.5) * (burst ? 4 : 1.5),
-          vy: dy * 0.2 + (Math.random() - 0.5) * (burst ? 4 : 1.5),
+          vx: dx * 0.2 + (Math.random() - 0.5) * (burst ? 3 : 1.2),
+          vy: dy * 0.2 + (Math.random() - 0.5) * (burst ? 3 : 1.2),
           life: burst ? 80 : 60,
-          size: Math.random() * 2 + 1,
+          size: Math.random() * 2 + 0.8,
           color: getColor(),
-          shape: Math.random() > 0.5 ? "circle" : "star",
+          shape: Math.random() > 0.5 ? "star" : "spark",
+          twinkle: Math.random() * Math.PI, // ⭐ shimmer phase
         });
       }
     };
 
-    // 🌟 Star shape
+    // ⭐ star
     const drawStar = (ctx, x, y, size) => {
       ctx.beginPath();
       for (let i = 0; i < 5; i++) {
@@ -65,23 +72,33 @@ export default function ParticleTrail({ theme = "pink" }) {
       ctx.closePath();
     };
 
-    // 💫 Idle floating particles
+    // ✨ spark (diamond style)
+    const drawSpark = (ctx, x, y, size) => {
+      ctx.beginPath();
+      ctx.moveTo(x, y - size);
+      ctx.lineTo(x + size, y);
+      ctx.lineTo(x, y + size);
+      ctx.lineTo(x - size, y);
+      ctx.closePath();
+    };
+
+    // 🌫 ambient sparkles
     const createIdleParticles = () => {
-      if (particles.current.length < 40) {
+      if (particles.current.length < 60) {
         particles.current.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
+          vx: (Math.random() - 0.5) * 0.15,
+          vy: (Math.random() - 0.5) * 0.15,
           life: 200,
           size: Math.random() * 1.5 + 0.5,
           color: getColor(),
-          shape: "circle",
+          shape: "spark",
+          twinkle: Math.random() * Math.PI,
         });
       }
     };
 
-    // 🎬 Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
@@ -92,19 +109,23 @@ export default function ParticleTrail({ theme = "pink" }) {
         p.y += p.vy;
         p.life--;
 
-        ctx.save();
+        // ⭐ shimmer effect
+        p.twinkle += 0.1;
+        const shimmer = 0.5 + Math.sin(p.twinkle) * 0.5;
 
-        ctx.shadowBlur = 12;
+        ctx.save();
+        ctx.globalAlpha = (p.life / 80) * shimmer;
+
+        // ✨ crisp glow (not blurry bubble)
+        ctx.shadowBlur = 10;
         ctx.shadowColor = p.color;
-        ctx.globalAlpha = p.life / 80;
         ctx.fillStyle = p.color;
 
-        if (p.shape === "circle") {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        if (p.shape === "star") {
+          drawStar(ctx, p.x, p.y, p.size + shimmer);
           ctx.fill();
         } else {
-          drawStar(ctx, p.x, p.y, p.size + 1);
+          drawSpark(ctx, p.x, p.y, p.size + shimmer);
           ctx.fill();
         }
 
@@ -115,52 +136,43 @@ export default function ParticleTrail({ theme = "pink" }) {
         }
       });
 
-      requestAnimationFrame(animate);
+      rafRef.current = requestAnimationFrame(animate);
     };
 
     animate();
 
-    // 🖱 mouse move
+    // 🖱 throttle
+    let lastTime = 0;
     const handleMove = (e) => {
+      const now = Date.now();
+      if (now - lastTime < 16) return;
+      lastTime = now;
+
       const dx = e.clientX - lastPos.current.x;
       const dy = e.clientY - lastPos.current.y;
 
       createParticles(e.clientX, e.clientY, dx, dy);
-
       lastPos.current = { x: e.clientX, y: e.clientY };
     };
 
-    // 📱 touch move
     const handleTouchMove = (e) => {
-      const touch = e.touches[0];
-      const dx = touch.clientX - lastPos.current.x;
-      const dy = touch.clientY - lastPos.current.y;
-
-      createParticles(touch.clientX, touch.clientY, dx, dy);
-
-      lastPos.current = { x: touch.clientX, y: touch.clientY };
+      const t = e.touches[0];
+      handleMove({ clientX: t.clientX, clientY: t.clientY });
     };
 
-    // 💥 tap burst
     const handleClick = (e) => {
       createParticles(e.clientX, e.clientY, 0, 0, true);
-    };
-
-    const handleTouchStart = (e) => {
-      const touch = e.touches[0];
-      createParticles(touch.clientX, touch.clientY, 0, 0, true);
     };
 
     window.addEventListener("mousemove", handleMove);
     window.addEventListener("touchmove", handleTouchMove);
     window.addEventListener("click", handleClick);
-    window.addEventListener("touchstart", handleTouchStart);
 
     return () => {
+      cancelAnimationFrame(rafRef.current);
       window.removeEventListener("mousemove", handleMove);
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("click", handleClick);
-      window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("resize", resize);
     };
   }, [theme]);

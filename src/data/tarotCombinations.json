@@ -1,0 +1,93 @@
+[
+  {
+    "key": ["The Sun", "The Moon", "The Star"],
+    "comboTitle": "Balance of Light and Shadow",
+    "message": "You are standing between clarity and mystery, guided by both light and intuition.\n\nToday is not about forcing answers, but allowing them to unfold naturally. There is wisdom in not knowing everything.\n\nMove gently. Trust what you feel, not just what you see."
+  },
+  {
+    "key": ["The Fool", "The Emperor", "Justice"],
+    "comboTitle": "Path of Purpose and Discipline",
+    "message": "A new beginning is calling, but it requires structure and responsibility.\n\nToday asks you to balance freedom with accountability. Your choices now carry weight.\n\nStep forward with courage—but walk with intention."
+  },
+  {
+    "key": ["Death", "The Star", "The World"],
+    "comboTitle": "Rebirth into Wholeness",
+    "message": "Something within you is ending, making space for healing and completion.\n\nThis is a powerful transformation. Do not resist it.\n\nYou are becoming a more whole version of yourself."
+  },
+
+  {
+    "key": ["The Tower", "Death", "Temperance"],
+    "comboTitle": "Storm Before Peace",
+    "message": "A sudden shift is breaking something open, leading to deep transformation.\n\nThough it may feel intense, balance will return.\n\nLet go of control. Calm will follow the chaos."
+  },
+  {
+    "key": ["The Devil", "Justice", "Judgment"],
+    "comboTitle": "Chains Broken by Truth",
+    "message": "You are being called to face something you’ve avoided.\n\nAccountability leads to liberation.\n\nOwn your truth—this is how you free yourself."
+  },
+  {
+    "key": ["The Empress", "The Emperor", "The World"],
+    "comboTitle": "Divine Balance",
+    "message": "Masculine and feminine energies are aligning within you.\n\nThis is a moment of stability, growth, and completion.\n\nYou are in harmony—trust your grounded strength."
+  },
+  {
+    "key": ["The Fool", "The Star", "Temperance"],
+    "comboTitle": "Gentle New Beginnings",
+    "message": "A fresh path is opening, guided by hope and patience.\n\nThere is no need to rush.\n\nLet things unfold naturally—you are exactly where you need to be."
+  },
+  {
+    "key": ["The Moon", "The Devil", "The Tower"],
+    "comboTitle": "Illusion Shattered",
+    "message": "Something hidden or unclear is about to be revealed.\n\nThis may feel unsettling, but it is necessary.\n\nTruth breaks illusions so you can move forward freely."
+  },
+  {
+    "key": ["Justice", "Judgment", "The World"],
+    "comboTitle": "Karmic Completion",
+    "message": "A cycle is coming full circle.\n\nYour past actions are aligning with your present reality.\n\nAccept closure—this is a powerful ending leading to renewal."
+  },
+  {
+    "key": ["The Hermit", "The Moon", "The Star"],
+    "comboTitle": "Inner Guidance Awakens",
+    "message": "You are being pulled inward to find your truth.\n\nNot everything is clear yet, but hope is guiding you.\n\nTrust your inner voice—it knows the way."
+  },
+  {
+    "key": ["The Emperor", "The Tower", "Death"],
+    "comboTitle": "Collapse of Control",
+    "message": "Structures you relied on are shifting or breaking down.\n\nThis is not failure—it is transformation.\n\nRelease control and allow change to reshape your path."
+  },
+  {
+    "key": ["The Empress", "Temperance", "The Star"],
+    "comboTitle": "Healing Energy",
+    "message": "This is a nurturing and restorative moment.\n\nYou are being guided toward emotional balance and peace.\n\nTake care of yourself—growth comes from softness too."
+  },
+  {
+    "key": ["The Fool", "The Tower", "Judgment"],
+    "comboTitle": "Awakening Leap",
+    "message": "A sudden shift is pushing you toward a new realization.\n\nThis may feel abrupt, but it’s necessary for your growth.\n\nAnswer the call—this is your moment to evolve."
+  },
+  {
+    "key": ["The Devil", "Death", "Judgment"],
+    "comboTitle": "Breaking Free",
+    "message": "You are shedding something that once held you back.\n\nThis is a deep transformation and awakening.\n\nYou are stepping into a more authentic version of yourself."
+  },
+  {
+    "key": ["The Sun", "The World", "Judgment"],
+    "comboTitle": "Radiant Completion",
+    "message": "Success and fulfillment are within reach.\n\nYou’ve grown, learned, and now stand ready to rise.\n\nCelebrate how far you’ve come."
+  },
+  {
+    "key": ["The Hermit", "Death", "The Star"],
+    "comboTitle": "Quiet Transformation",
+    "message": "Change is happening within, even if it’s not visible outside.\n\nThis is a time of inner growth and healing.\n\nTrust the silence—it holds your answers."
+  },
+  {
+    "key": ["The Moon", "Temperance", "The World"],
+    "comboTitle": "Emotional Balance Achieved",
+    "message": "Confusion is settling into clarity.\n\nYou are learning to navigate your emotions with grace.\n\nThis brings a sense of completion and peace."
+  },
+  {
+    "key": ["The Emperor", "Justice", "The World"],
+    "comboTitle": "Order and Resolution",
+    "message": "Things are aligning through structure and fairness.\n\nDecisions made now bring lasting stability.\n\nTrust the process—it leads to completion."
+  }
+]

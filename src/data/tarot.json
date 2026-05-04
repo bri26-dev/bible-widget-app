@@ -1,22 +1,86 @@
 [
   {
-    "name": "☀️The Sun",
-    "meaning": "💬Positivity, success, warmth",
+    "name": "☀️ The Sun",
+    "title": "Radiance",
+    "meaning": "Clarity, success, vitality",
     "image": "/assets/tarot/sun.png"
   },
   {
-    "name": "🌙The Moon",
-    "meaning": "💬Intuition, uncertainty, reflection",
+    "name": "🌙 The Moon",
+    "title": "Reflection",
+    "meaning": "Intuition, illusion, inner reflection",
     "image": "/assets/tarot/moon.png"
   },
   {
-    "name": "🌠The Star",
-    "meaning": "💬Hope, healing, guidance",
+    "name": "🌠 The Star",
+    "title": "Hope",
+    "meaning": "Hope, healing, guidance",
     "image": "/assets/tarot/star.png"
   },
   {
-    "name": "🎉The Fool",
-    "meaning": "💬New beginnings, freedom",
+    "name": "🎉 The Fool",
+    "title": "Beginnings",
+    "meaning": "New beginnings, freedom, trust",
     "image": "/assets/tarot/fool.png"
+  },
+  {
+    "name": "👑 The Emperor",
+    "title": "Authority",
+    "meaning": "Structure, leadership, control",
+    "image": "/assets/tarot/emperor.png"
+  },
+  {
+    "name": "👸 The Empress",
+    "title": "Nurture",
+    "meaning": "Growth, nurturing, abundance",
+    "image": "/assets/tarot/empress.png"
+  },
+  {
+    "name": "⚖️ Justice",
+    "title": "Balance",
+    "meaning": "Truth, fairness, accountability",
+    "image": "/assets/tarot/justice.png"
+  },
+  {
+    "name": "⏳ The Hermit",
+    "title": "Wisdom",
+    "meaning": "Solitude, introspection, inner guidance",
+    "image": "/assets/tarot/hermit.png"
+  },
+  {
+    "name": "⚡ The Tower",
+    "title": "Awakening",
+    "meaning": "Sudden change, disruption, revelation",
+    "image": "/assets/tarot/tower.png"
+  },
+  {
+    "name": "💀 Death",
+    "title": "Transformation",
+    "meaning": "Endings, rebirth, deep change",
+    "image": "/assets/tarot/death.png"
+  },
+  {
+    "name": "🌿 Temperance",
+    "title": "Harmony",
+    "meaning": "Balance, patience, moderation",
+    "image": "/assets/tarot/temperance.png"
+  },
+  {
+    "name": "🔥 The Devil",
+    "title": "Attachment",
+    "meaning": "Temptation, limitation, control",
+    "image": "/assets/tarot/devil.png"
+  },
+  {
+    "name": "🚪 Judgment",
+    "title": "Calling",
+    "meaning": "Awakening, reflection, renewal",
+    "image": "/assets/tarot/judgment.png"
+  },
+  {
+    "name": "🌍 The World",
+    "title": "Completion",
+    "meaning": "Fulfillment, wholeness, achievement",
+    "image": "/assets/tarot/world.png"
   }
 ]
