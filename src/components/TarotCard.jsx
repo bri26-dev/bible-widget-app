@@ -120,7 +120,7 @@ Move with awareness. Trust the process, even if it feels unclear.`,
           animate={{ opacity: 1 }}
           className="flex flex-col items-center gap-8"
         >
-          <div className="flex gap-3">
+          <div className="flex gap-1">
             {spread.map((card, i) => (
               <motion.div
                 key={i}
