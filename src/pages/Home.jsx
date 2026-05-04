@@ -78,9 +78,9 @@ export default function Home({ user }) {
   const getGreeting = () => {
     const hour = new Date().getHours();
 
-    if (hour < 11) return { text: "Good morning", emoji: "🌤" };
-    if (hour < 14) return { text: "Good noon", emoji: "☀️" };
-    if (hour < 18) return { text: "Good afternoon", emoji: "🌇" };
+    if (hour >= 6 && hour < 12) return { text: "Good morning", emoji: "🌅" };
+    if (hour === 12) return { text: "Good noon", emoji: "☀️" };
+    if (hour > 12 && hour < 18) return { text: "Good afternoon", emoji: "🌇" };
     return { text: "Good evening", emoji: "🌙" };
   };
 
@@ -179,11 +179,11 @@ export default function Home({ user }) {
       })}
 
       {/* 💎 controls */}
-      <div className="absolute top-4 right-4 flex gap-3 z-50">
+      <div className="absolute top-4 right-4 flex gap-2 z-50">
         {Object.keys(themes).map((t) => (
           <button key={t} onClick={() => setTheme(t)} className="relative">
             <div
-              className={`w-7 h-7 rounded-full ${
+              className={`w-6 h-6 rounded-full ${
                 t === "pink"
                   ? "bg-pink-300"
                   : t === "blue"
