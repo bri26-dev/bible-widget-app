@@ -10,24 +10,18 @@ export default function ZodiacCard({ user }) {
   const sign = getZodiac(user.birthday.month, user.birthday.day);
   const zodiac = zodiacData.find((z) => z.sign === sign);
 
-  // 🔮 deterministic daily pick
   const base =
     todayKey.split("").reduce((a, c) => a + c.charCodeAt(0), 0) + sign.length;
 
   const reading = zodiac.readings[base % zodiac.readings.length];
   const advice = zodiac.advice[base % zodiac.advice.length];
 
-  // 📌 persistent reveal (same as bible)
   const [revealed, setRevealed] = useState(() => {
     const saved = localStorage.getItem("zodiacRevealDate");
     return saved === todayKey;
   });
 
-  // 🎯 stage
-  // 0 = vibe (symbol + sign + vibe)
-  // 1 = full (reading + advice)
   const [stage, setStage] = useState(0);
-
   const [revealing, setRevealing] = useState(false);
 
   const handleReveal = () => {
@@ -60,16 +54,15 @@ export default function ZodiacCard({ user }) {
 
   return (
     <div className="flex flex-col items-center justify-center px-6 text-center relative">
-      {/* ========================= */}
       {/* 🔮 TITLE */}
-      {/* ========================= */}
       <motion.h2
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-[20px] text-gray-700 tracking-wide"
+        className="text-[20px] text-gray-700 tracking-wide mb-4"
       >
         🌠 Your Daily Prediction
       </motion.h2>
+
       {/* 🌌 ambient glow */}
       <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.25, 0.5, 0.25] }}
@@ -77,20 +70,20 @@ export default function ZodiacCard({ user }) {
         className="absolute w-[320px] h-[320px] bg-white/20 blur-[110px] rounded-full"
       />
 
-      <div className="relative z-10 max-w-[320px]">
-        {/* ✨ SHOW REVEAL PROMPT ONLY IF NOT REVEALED */}
+      <div className="relative z-10 max-w-[320px] w-full flex flex-col items-center">
+        {/* ✨ REVEAL TEXT (separate spacing) */}
         {!revealed && !revealing && (
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-[15px] text-gray-600 animate-pulse cursor-pointer"
+            className="text-[15px] text-gray-600 animate-pulse cursor-pointer mb-6"
             onClick={handleReveal}
           >
             🌙 Tap to reveal your cosmic guidance
           </motion.p>
         )}
 
-        {/* 🌌 portal animation */}
+        {/* 🌌 portal */}
         <AnimatePresence>
           {revealing && (
             <motion.div
@@ -98,69 +91,70 @@ export default function ZodiacCard({ user }) {
               animate={{ scale: 2, opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="w-32 h-32 bg-white/80 blur-3xl rounded-full mx-auto"
+              className="w-32 h-32 bg-white/80 blur-3xl rounded-full"
             />
           )}
         </AnimatePresence>
 
-        {/* 💎 MAIN CARD */}
+        {/* 💎 FIXED CARD */}
         {revealed && (
           <motion.div
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8 }}
-            className="bg-white/60 backdrop-blur-md p-6 rounded-xl shadow-lg space-y-4 mt-4"
+            className="w-full h-[260px] flex flex-col justify-between
+            bg-white/60 backdrop-blur-md p-5 rounded-xl shadow-lg"
           >
-            {/* 🌙 symbol */}
-            <motion.div
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="text-[34px]"
-            >
-              {zodiac.symbol}
-            </motion.div>
+            {/* TOP */}
+            <div className="flex flex-col items-center space-y-2">
+              <motion.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="text-[32px]"
+              >
+                {zodiac.symbol}
+              </motion.div>
 
-            {/* 🪐 sign */}
-            <p className="text-[18px] text-gray-800 tracking-wide">
-              {zodiac.sign}
-            </p>
+              <p className="text-[16px] text-gray-800">{zodiac.sign}</p>
+            </div>
 
-            {/* 🔁 CONTENT SWITCH */}
-            <AnimatePresence mode="wait">
-              {stage === 0 && (
-                <motion.div
-                  key="vibe"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <p className="text-[13px] text-gray-500 italic">
+            {/* MIDDLE CONTENT (scroll safe) */}
+            <div className="flex-1 overflow-y-auto px-1">
+              <AnimatePresence mode="wait">
+                {stage === 0 && (
+                  <motion.p
+                    key="vibe"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="text-[13px] text-gray-500 italic text-center"
+                  >
                     {zodiac.vibe}
-                  </p>
-                </motion.div>
-              )}
+                  </motion.p>
+                )}
 
-              {stage === 1 && (
-                <motion.div
-                  key="full"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="space-y-3"
-                >
-                  <p className="text-[14px] text-gray-700 leading-relaxed">
-                    ✨ {reading}
-                  </p>
+                {stage === 1 && (
+                  <motion.div
+                    key="full"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="space-y-3 text-center"
+                  >
+                    <p className="text-[13px] text-gray-700 leading-relaxed">
+                      ✨ {reading}
+                    </p>
 
-                  <p className="text-[13px] text-gray-600 italic">
-                    🌿 {advice}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                    <p className="text-[12px] text-gray-600 italic">
+                      🌿 {advice}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
-            {/* 🔘 CONTROLS */}
-            <div className="flex justify-center gap-6 pt-4 text-sm">
+            {/* BOTTOM CONTROLS */}
+            <div className="flex justify-center gap-6 pt-3 text-sm">
               {stage === 0 ? (
                 <>
                   <button
