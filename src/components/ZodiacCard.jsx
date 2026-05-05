@@ -60,6 +60,16 @@ export default function ZodiacCard({ user }) {
 
   return (
     <div className="flex flex-col items-center justify-center px-6 text-center relative">
+      {/* ========================= */}
+      {/* 🔮 TITLE */}
+      {/* ========================= */}
+      <motion.h2
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-[20px] text-gray-700 tracking-wide"
+      >
+        🌠 Your Daily Prediction
+      </motion.h2>
       {/* 🌌 ambient glow */}
       <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.25, 0.5, 0.25] }}
