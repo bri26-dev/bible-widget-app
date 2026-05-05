@@ -120,7 +120,7 @@ export default function UserSetup({ onSave }) {
       className={`h-screen flex items-center justify-center relative overflow-hidden font-pixel bg-gradient-to-b ${currentTheme.bg}`}
       onClick={playSound}
     >
-      <audio ref={audioRef} src="/assets/start.mp3" />
+      <audio ref={audioRef} src="/assets/ambient.mp3" />
 
       {/* 🌌 PORTAL */}
       <AnimatePresence>
@@ -187,6 +187,8 @@ export default function UserSetup({ onSave }) {
           <p className="text-[11px] text-red-500">Name is required</p>
         )}
 
+        <p className="text-[14px] text-gray-600 mb-3">Gender</p>
+
         {/* GENDER */}
         <div className="flex gap-2 mt-3 mb-1">
           {["👨Male", "👩Female", "🤖Other"].map((g) => (
@@ -211,6 +213,8 @@ export default function UserSetup({ onSave }) {
         {errors.gender && (
           <p className="text-[11px] text-red-500">Select a gender</p>
         )}
+
+        <p className="text-[14px] text-gray-600 mb-3">Birthday</p>
 
         {/* 🎂 BIRTHDAY */}
         <div className="flex gap-2 mt-3">
