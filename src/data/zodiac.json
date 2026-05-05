@@ -1,0 +1,206 @@
+[
+  {
+    "sign": "Aries",
+    "symbol": "♈",
+    "vibe": "A restless fire moves within you today.",
+    "readings": [
+      "Today invites you to slow down despite your natural urge to move quickly. There is wisdom in pausing before action.",
+      "Your energy is strong, but direction matters more than speed. Focus on one meaningful step.",
+      "Something requires courage today—but not recklessness. Choose intention over impulse.",
+      "You may feel pressure to act fast. Take a breath. Clarity will sharpen your next move."
+    ],
+    "advice": [
+      "Pause before reacting. Reflection strengthens your path.",
+      "Channel your energy into one focused goal.",
+      "Not every battle needs to be fought today.",
+      "Strength is knowing when to hold back."
+    ]
+  },
+  {
+    "sign": "Taurus",
+    "symbol": "♉",
+    "vibe": "Grounded energy surrounds you, but change whispers.",
+    "readings": [
+      "Stability surrounds you today, but growth asks for a little discomfort.",
+      "You may resist change, but something new is meant to enter your life.",
+      "A routine may feel safe, but today asks you to stretch beyond it.",
+      "Comfort is present, but transformation waits just outside it."
+    ],
+    "advice": [
+      "Take one step outside your comfort zone.",
+      "Trust that change can still be safe.",
+      "Release resistance slowly, not forcefully.",
+      "Growth does not erase your stability—it expands it."
+    ]
+  },
+  {
+    "sign": "Gemini",
+    "symbol": "♊",
+    "vibe": "Your mind is alive with movement and curiosity.",
+    "readings": [
+      "Your thoughts are racing today—pause before turning them into action.",
+      "Communication holds power today. Speak carefully.",
+      "Ideas will come easily, but clarity requires grounding.",
+      "You may feel scattered—choose one thought to follow."
+    ],
+    "advice": [
+      "Not every thought needs to be acted on.",
+      "Speak less, observe more.",
+      "Clarity comes when you slow your mind.",
+      "Focus creates depth."
+    ]
+  },
+  {
+    "sign": "Cancer",
+    "symbol": "♋",
+    "vibe": "Emotional waves are stronger than usual today.",
+    "readings": [
+      "Your emotions are heightened, but they are guiding you somewhere important.",
+      "Something within you is asking to be understood, not suppressed.",
+      "You may feel sensitive today—honor it, don’t hide it.",
+      "Emotional clarity will come if you sit with what you feel."
+    ],
+    "advice": [
+      "Protect your emotional energy.",
+      "You don’t need to carry everything.",
+      "Feel deeply—but stay grounded.",
+      "Choose where your care goes."
+    ]
+  },
+  {
+    "sign": "Leo",
+    "symbol": "♌",
+    "vibe": "Your presence radiates, even in stillness.",
+    "readings": [
+      "You are meant to shine, but today asks for quiet confidence.",
+      "Recognition may not come immediately—stay steady.",
+      "Your strength is most powerful when it is gentle.",
+      "You don’t need attention to prove your worth."
+    ],
+    "advice": [
+      "Lead with presence, not ego.",
+      "Stay consistent even without applause.",
+      "Kindness amplifies your power.",
+      "You already shine—no need to force it."
+    ]
+  },
+  {
+    "sign": "Virgo",
+    "symbol": "♍",
+    "vibe": "Order and reflection surround your thoughts.",
+    "readings": [
+      "You may feel the urge to fix everything today—pause.",
+      "Not everything requires your control.",
+      "Progress is happening even if it feels imperfect.",
+      "Let things unfold without constant adjustment."
+    ],
+    "advice": [
+      "Release the need for perfection.",
+      "Let things be unfinished for now.",
+      "Trust the process, not just the result.",
+      "You don’t need to fix everything."
+    ]
+  },
+  {
+    "sign": "Libra",
+    "symbol": "♎",
+    "vibe": "Balance feels slightly out of reach today.",
+    "readings": [
+      "Things may feel off-center, but forcing balance won’t help.",
+      "A decision weighs on you—listen inward.",
+      "You may seek harmony externally instead of internally.",
+      "Stillness will guide your sense of balance."
+    ],
+    "advice": [
+      "Let balance come naturally.",
+      "Trust your inner voice over external noise.",
+      "Not every situation needs fixing.",
+      "Peace comes from within first."
+    ]
+  },
+  {
+    "sign": "Scorpio",
+    "symbol": "♏",
+    "vibe": "Something deep within you is shifting quietly.",
+    "readings": [
+      "Transformation is happening even if you can’t see it.",
+      "Let go of control—something needs space to evolve.",
+      "A hidden truth may surface today.",
+      "You are changing more than you realize."
+    ],
+    "advice": [
+      "Release what you cannot control.",
+      "Trust the unseen process.",
+      "Let transformation happen naturally.",
+      "Depth requires surrender."
+    ]
+  },
+  {
+    "sign": "Sagittarius",
+    "symbol": "♐",
+    "vibe": "A pull toward freedom and exploration grows.",
+    "readings": [
+      "You may feel the urge to move forward quickly—stay present.",
+      "Curiosity is strong, but grounding is needed.",
+      "Exploration is good, but direction matters.",
+      "Don’t rush toward the next thing—there is value here."
+    ],
+    "advice": [
+      "Be present before chasing what’s next.",
+      "Balance curiosity with discipline.",
+      "Stay grounded while exploring.",
+      "Growth happens where you are."
+    ]
+  },
+  {
+    "sign": "Capricorn",
+    "symbol": "♑",
+    "vibe": "A steady force pushes you forward.",
+    "readings": [
+      "Progress may feel slow, but it is steady.",
+      "You are building something meaningful—keep going.",
+      "Pressure may rise today—don’t carry it all.",
+      "Consistency matters more than speed."
+    ],
+    "advice": [
+      "Rest as much as you work.",
+      "Stay steady, not rushed.",
+      "Release unnecessary pressure.",
+      "Your effort is not wasted."
+    ]
+  },
+  {
+    "sign": "Aquarius",
+    "symbol": "♒",
+    "vibe": "Your mind drifts beyond the ordinary today.",
+    "readings": [
+      "Your ideas are unique—don’t dilute them.",
+      "You may feel detached, but clarity is forming.",
+      "Observation will reveal more than reaction.",
+      "Distance can bring understanding."
+    ],
+    "advice": [
+      "Trust your originality.",
+      "Observe before acting.",
+      "Not everything needs your response.",
+      "Clarity comes in space."
+    ]
+  },
+  {
+    "sign": "Pisces",
+    "symbol": "♓",
+    "vibe": "A soft intuitive energy surrounds you.",
+    "readings": [
+      "Your intuition is strong—listen carefully.",
+      "You may feel deeply today—stay grounded.",
+      "Something subtle is guiding you forward.",
+      "Your inner voice holds the answer."
+    ],
+    "advice": [
+      "Trust your intuition.",
+      "Stay grounded while feeling deeply.",
+      "Balance emotion with awareness.",
+      "Clarity comes from within."
+    ]
+  }
+]

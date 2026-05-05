@@ -3,6 +3,7 @@ import { useSwipeable } from "react-swipeable";
 import { motion } from "framer-motion";
 
 import TarotCard from "../components/TarotCard";
+import ZodiacCard from "../components/ZodiacCard";
 import ParticleTrail from "../components/ParticleTrail";
 
 import bibleData from "../data/bible.json";
@@ -26,7 +27,9 @@ export default function Home({ user }) {
     return saved === todayKey;
   });
 
-  const next = () => section < 1 && setSection((s) => s + 1);
+  const TOTAL_SECTIONS = 3;
+
+  const next = () => section < TOTAL_SECTIONS - 1 && setSection((s) => s + 1);
   const prev = () => section > 0 && setSection((s) => s - 1);
 
   const handlers = useSwipeable({
@@ -319,18 +322,6 @@ export default function Home({ user }) {
               )}
             </div>
           </div>
-
-          {/* ⬇ NAV */}
-          {revealed && (
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              onClick={next}
-              className="mb-10 text-2xl animate-bounce"
-            >
-              ⬇
-            </motion.button>
-          )}
         </div>
 
         {/* 🔮 TAROT */}
@@ -341,10 +332,16 @@ export default function Home({ user }) {
           >
             <TarotCard tarotData={tarotData} />
           </motion.div>
+        </div>
 
-          <button onClick={prev} className="mt-10 text-2xl animate-bounce">
-            ⬆
-          </button>
+        {/* 🌙 ZODIAC */}
+        <div className="h-screen flex flex-col items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
+            <ZodiacCard user={user} />
+          </motion.div>
         </div>
       </motion.div>
     </div>

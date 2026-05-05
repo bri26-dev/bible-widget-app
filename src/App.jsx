@@ -3,48 +3,57 @@ import UserSetup from "./components/UserSetup";
 import useTheme from "./hooks/useTheme";
 import Home from "./pages/Home";
 
+const CURRENT_USER_VERSION = 2; // 🔥 bump this when structure changes
+
 function App() {
   const [user, setUser] = useState(null);
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+
+    if (!storedUser) return;
+
+    try {
+      const parsed = JSON.parse(storedUser);
+
+      // 🔥 VALIDATION + VERSION CHECK
+      const isOutdated =
+        !parsed.version ||
+        parsed.version < CURRENT_USER_VERSION ||
+        !parsed.birthday ||
+        !parsed.gender;
+
+      if (isOutdated) {
+        // ❌ reset old user safely
+        localStorage.removeItem("user");
+        setUser(null);
+        return;
+      }
+
+      setUser(parsed);
+    } catch (err) {
+      // ❌ corrupted data fallback
+      localStorage.removeItem("user");
+      setUser(null);
     }
   }, []);
 
-  const themeClasses = {
-    pink: "bg-pink-100 text-pink-700",
-    blue: "bg-blue-100 text-blue-700",
-    purple: "bg-purple-100 text-purple-700",
+  const handleSave = (newUser) => {
+    const updatedUser = {
+      ...newUser,
+      version: CURRENT_USER_VERSION,
+    };
+
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+    setUser(updatedUser);
   };
 
   if (!user) {
-    return <UserSetup onSave={setUser} />;
+    return <UserSetup onSave={handleSave} />;
   }
 
   return <Home user={user} />;
-
-  return (
-    <div
-      className={`h-screen flex flex-col items-center justify-center ${themeClasses[theme]} font-pixel`}
-    >
-      <h1 className="text-sm mb-6">🌤 Good day, {user.name}!</h1>
-
-      <div className="flex gap-2">
-        <button onClick={() => setTheme("pink")} className="px-2 py-1 border">
-          🌸
-        </button>
-        <button onClick={() => setTheme("blue")} className="px-2 py-1 border">
-          🌊
-        </button>
-        <button onClick={() => setTheme("purple")} className="px-2 py-1 border">
-          🍇
-        </button>
-      </div>
-    </div>
-  );
 }
 
 export default App;
